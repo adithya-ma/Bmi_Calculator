@@ -12,14 +12,34 @@ function App() {
   //let bmi=18;
   const [bmi, setBmi] = useState("00");
   const [type, setType] = useState("Not Calculated");
+
+  const [bmirange,setBmiRange] = useState({
+    Underweight:{low:""},
+    Normal:{low:"",high:""},
+    Overweight:{low:"",high:""},
+    ObesityOne:{low:"",high:""},
+    ObesityTwo:{low:"",high:""},
+    ObesityThree:{high:""}
+  });
+
   const onFormSub = (w, h) => {
     let b=calcBmi(w,h);
     setBmi(b);
     setType(calcType(b));
-    console.log(w, h)
+    console.log(w, h);
+    const range={
+      Underweight:{low:calweight(18.5,h)},
+      Normal:{low:calweight(18.5,h), high:calweight(24.9,h)},
+      Overweight:{low:calweight(25.0,h), high:calweight(29.9,h)},
+      ObesityOne:{low:calweight(30.0,h), high:calweight(34.9,h)},
+      ObesityTwo:{low:calweight(35.0,h), high:calweight(39.9,h)},
+      ObesityThree:{high:calweight(40.0,h)},
+    };
+    setBmiRange(range);
   }
 
 const calcBmi = (w,h) => (w/(h*h)).toFixed(2)
+const calweight = (b,h) => (b*h*h).toFixed(2)
 const calcType = (bmi) =>{
   if(bmi<18.5){
     return "Underweight"
@@ -45,7 +65,7 @@ const calcType = (bmi) =>{
     <>
       <Form getdata={onFormSub} />
       <BmiScore bmiNo={bmi} bmiName={type} />
-      <BmiList />
+      <BmiList range={bmirange}/>
     </>
   );
 }
