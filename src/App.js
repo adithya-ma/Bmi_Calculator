@@ -65,7 +65,7 @@ const calcType = (bmi) =>{
     <>
       <Form getdata={onFormSub} />
       <BmiScore bmiNo={bmi} bmiName={type} />
-      <BmiList range={bmirange}/>
+      <BmiList range={bmirange} bmi={bmi}/>
     </>
   );
 }

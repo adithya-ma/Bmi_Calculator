@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-.list {
+ .list {
     border: 0.5px solid #938686;
     padding: 30px;
     max-width: 600px;
@@ -11,9 +11,9 @@
     height: 60%;
     border-radius: 7px;
     text-align: center;
-    margin-left: 700px;
+    transform: translate(130%, -90%);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
+  } 
 
 .details{
     border-collapse: collapse;
@@ -28,3 +28,11 @@
 }
 
 tr:nth-child(even){background-color: #f1f0f0f0;}
+
+@media (max-width: 768px) {
+    .list {
+        width: 100%;
+        left: 0;
+        transform: translate(0, -50%);
+    }
+}

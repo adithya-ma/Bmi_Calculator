@@ -1,4 +1,4 @@
-function BmiList({range}){
+function BmiList({range, bmi}){
    console.log(range);
     return(
     <>
