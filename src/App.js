@@ -10,6 +10,7 @@ import './css/BmiList.css'
 
 function App() {
   //let bmi=18;
+  const [changeWeight, setChangeWeight] = useState({weight:"", type:""})
   const [bmi, setBmi] = useState("00");
   const [type, setType] = useState("Not Calculated");
 
@@ -36,10 +37,37 @@ function App() {
       ObesityThree:{high:calweight(40.0,h)},
     };
     setBmiRange(range);
+    setChangeWeight(weightChange(b,w,range))
   }
 
 const calcBmi = (w,h) => (w/(h*h)).toFixed(2)
 const calweight = (b,h) => (b*h*h).toFixed(2)
+
+const weightChange = (b,w,range) =>{
+  let changeobj;
+  if(b>24.9){
+    changeobj={
+      weight:(w - range.Normal.high).toFixed(2),
+      type:"positive",
+    }
+    return changeobj;
+  }
+  else if(b<18.5){
+    changeobj={
+      weight:(range.Normal.low - w).toFixed(2),
+      type:"negative",
+    }
+    return changeobj;
+  }
+  else{
+    changeobj={
+      weight:0,
+      type:"normal",
+    }
+    return changeobj;
+  }
+}
+
 const calcType = (bmi) =>{
   if(bmi<18.5){
     return "Underweight"
@@ -64,7 +92,7 @@ const calcType = (bmi) =>{
   return (
     <>
       <Form getdata={onFormSub} />
-      <BmiScore bmiNo={bmi} bmiName={type} />
+      <BmiScore bmiNo={bmi} bmiName={type} changeWeight={changeWeight} />
       <BmiList range={bmirange} bmi={bmi}/>
     </>
   );

@@ -1,4 +1,5 @@
-function BmiScore({ bmiNo, bmiName }) {
+function BmiScore({ bmiNo, bmiName, changeWeight }) {
+  console.log(changeWeight)
     return (
       <>
         <div className="wrapper">
@@ -14,6 +15,18 @@ function BmiScore({ bmiNo, bmiName }) {
                 {bmiName}
               </div>
   
+              {changeWeight.type === "positive" && (
+                <div className="weightResult">" You need to lose <span>{changeWeight.weight} kg "</span></div>
+              ) }
+
+              {changeWeight.type === "negative" && (
+                <div className="weightResult">" You need to gain <span>{changeWeight.weight} kg "</span></div>
+              ) }
+
+              {changeWeight.type === "normal" && (
+                <div className="weightResult">"Your weight is <span>Normal</span> Good to go"</div>
+              ) }
+
             </div>
           </form>
         </div>

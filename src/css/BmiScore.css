@@ -36,4 +36,15 @@
   p {
     padding-top: 1rem;
   }
-  
+
+  .weightResult{
+    padding-top: 1rem;
+    font-size: 28px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+
+  span{
+    color:rgb(4, 16, 29);
+     font-size: 30px; 
+    font-weight: bolder;
+  }
