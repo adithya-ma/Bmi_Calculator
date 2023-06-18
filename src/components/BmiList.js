@@ -13,7 +13,7 @@ function BmiList({ range, bmi }) {
             <th>BMI</th>
             <th>Weight</th>
           </tr>
-          <tr className={bmi && isInRange(1, 18.5) ? "highlight-row" : ""}>
+          <tr className={bmi && isInRange(0, 18.5) ? "highlight-row" : ""}>
             <td>Underweight</td>
             <td>&lt; 18.5</td>
             <td>{range.Underweight.low + " kg"}</td>
