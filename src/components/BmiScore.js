@@ -16,11 +16,11 @@ function BmiScore({ bmiNo, bmiName, changeWeight }) {
               </div>
   
               {changeWeight.type === "positive" && (
-                <div className="weightResult">" You need to lose <span>{changeWeight.weight} kg "</span></div>
+                <div className="weightResult">" You need to lose <span>{changeWeight.weight} kg </span>"</div>
               ) }
 
               {changeWeight.type === "negative" && (
-                <div className="weightResult">" You need to gain <span>{changeWeight.weight} kg "</span></div>
+                <div className="weightResult">" You need to gain <span>{changeWeight.weight} kg </span>"</div>
               ) }
 
               {changeWeight.type === "normal" && (
