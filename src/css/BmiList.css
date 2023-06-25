@@ -36,16 +36,14 @@
     font-size: 17px;
     word-spacing: 5px;
     font-weight:400;
-    display: flex;
-    justify-content: center;
-    text-align: center;
+    
 } 
 
 .row {
     display: flex;
     justify-content: space-between; 
      /* word-spacing: 25px;    */
-    align-items: center;
+    /* align-items: center; */
     /*line-height: 38px; */
     align-items: center; /* Center the contents vertically within each row */
     word-spacing: 25px;
@@ -62,7 +60,7 @@ h2{
 .row span:nth-child(1),
 .row span:nth-child(2),
 .row span:nth-child(3) {
-  text-align: center; /* Center the contents within the respective columns */
+  align-items: center; /* Center the contents within the respective columns */
 }
 
 @media (max-width: 768px) {
